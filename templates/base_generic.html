@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Django E-commerce Site{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/styles.css"> <!-- Add your CSS file here -->
+</head>
+<body>
+    <header>
+        <h1>Welcome to the E-commerce Site</h1>
+        <nav>
+            <a href="{% url 'home' %}">Home</a> |
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 E-commerce Site</p>
+    </footer>
+</body>
+</html>

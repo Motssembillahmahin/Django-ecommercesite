@@ -1,0 +1,17 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>Your Products</h2>
+  <ul>
+    {% for product in products %}
+      <li>
+        <strong>{{ product.name }}</strong><br>
+        Price: ${{ product.price }}<br>
+        Category: {{ product.category }}<br>
+        Stock Quantity: {{ product.stock_quantity }}<br>
+      </li>
+    {% empty %}
+      <p>No products uploaded yet.</p>
+    {% endfor %}
+  </ul>
+{% endblock %}
