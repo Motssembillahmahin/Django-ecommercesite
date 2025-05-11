@@ -1,0 +1,37 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>All Orders</h2>
+  <ul>
+    {% for order in all_orders %}
+      <li>
+        <strong>Order ID: {{ order.order_name }}</strong><br>
+        Customer Name: {{ order.customer_name }}<br>
+        Order Date: {{ order.order_date }}<br>
+        Total Amount: ${{ order.total_amount }}<br>
+        Status: {{ order.latestupdateofpercel }}<br>
+      </li>
+    {% empty %}
+      <p>No orders found.</p>
+    {% endfor %}
+  </ul>
+ <! ---- Pagination --->
+  <div class="pagination">
+    <span class="step-links">
+      {% if all_orders.has_previous %}
+        <a href="?page=1">&laquo; first</a>
+        <a href="?page={{ all_orders.previous_page_number }}">previous</a>
+      {% endif %}
+
+      <span class="current">
+        Page {{ all_orders.number }} of {{ all_orders.paginator.num_pages }}.
+      </span>
+
+      {% if all_orders.has_next %}
+        <a href="?page={{ all_orders.next_page_number }}">next</a>
+        <a href="?page={{ all_orders.paginator.num_pages }}">last &raquo;</a>
+      {% endif %}
+    </span>
+  </div>
+
+{% endblock %}
